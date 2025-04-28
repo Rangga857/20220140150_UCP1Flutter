@@ -31,6 +31,27 @@ class _HomePageState extends State<HomePage> {
                     backgroundImage: AssetImage('assets/images/profile.png'),
                   ),
                   SizedBox(width: 12),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Selamat Datang",
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white70,
+                        )
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        widget.nama,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
               )
