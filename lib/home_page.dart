@@ -53,6 +53,7 @@ class _HomePageState extends State<HomePage> {
                       )
                     ],
                   ),
+                  const Spacer(),
                   IconButton(
                     onPressed: (){
                       Navigator.pushReplacement(
