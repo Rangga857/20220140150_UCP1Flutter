@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/home_page.dart';
 import 'package:ucp1/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -53,7 +54,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 validator: (value) => value!.isEmpty ? 'Masukkan Nama Anda' : null,
               ),
               const SizedBox(height: 16),
-
               Row(
                 children: [
                   Expanded(
@@ -151,7 +151,6 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           validator: (value) {
                             if (value!.isEmpty) return 'Konfirmasi password Anda';
-                            if (value != passwordController.text) return 'Password tidak cocok';
                             return null;
                           },
                         ),
@@ -168,9 +167,20 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      if(passwordController.text != confirmPasswordController.text){
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Password tidak sama!'),
+                            backgroundColor: Colors.red,
+                            behavior: SnackBarBehavior.floating,
+                          ),
+                        );
+                        return;
+                      }
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const LoginPage()),
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage()),
                       );
                     }
                   },
