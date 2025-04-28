@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/data_barang_page.dart';
+import 'package:ucp1/data_pelanggan_page.dart';
+import 'package:ucp1/data_piket_page.dart';
 import 'package:ucp1/login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -87,8 +90,46 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 24),
               Row(
                 children: [
+                  Expanded(
+                    child: menuButton(
+                      icon: Icons.assignment_turned_in_rounded, 
+                      label: 'Data Piket', 
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PiketPage(),
+                          ),
+                        );
+                      }
+                    ),
+                  ),
+                   const SizedBox(width: 16),
+                  Expanded(
+                    child: menuButton(
+                      icon: Icons.group_add,
+                      label: 'Data Pelanggan',
+                      onTap: () {
+                         Navigator.push(
+                          context, 
+                          MaterialPageRoute(
+                            builder: (context) => const PelangganPage()));
+                      },
+                    ),
+                  ),
                 ],
-              )
+              ),
+                const SizedBox(height: 16),
+              menuButton(
+                icon: Icons.receipt_long,
+                label: 'Barang Masuk/Keluar',
+                onTap: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => 
+                   BarangPage())
+                  );
+                },
+                isFullWidth: true,
+              ),
             ],
           ),
         ),
