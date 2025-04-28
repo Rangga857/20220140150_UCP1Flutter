@@ -21,7 +21,20 @@ class _HomePageState extends State<HomePage> {
           automaticallyImplyLeading: false,
           backgroundColor: Color.fromARGB(255, 255, 85, 0),
           elevation: 0,
-         
+          flexibleSpace: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 28,
+                    backgroundImage: AssetImage('assets/images/profile.png'),
+                  ),
+                  SizedBox(width: 12),
+                ],
+              ),
+              )
+            ),
         )),
     );
   }
