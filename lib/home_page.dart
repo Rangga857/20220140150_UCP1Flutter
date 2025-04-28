@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/login_page.dart';
 
 class HomePage extends StatefulWidget {
   final String nama;
@@ -51,6 +52,16 @@ class _HomePageState extends State<HomePage> {
                         ),
                       )
                     ],
+                  ),
+                  IconButton(
+                    onPressed: (){
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ),
+                      );
+                    }, icon: Icon(Icons.logout, color: Colors.white)
                   )
                 ],
               ),
