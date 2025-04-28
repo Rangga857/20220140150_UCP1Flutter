@@ -22,7 +22,8 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.white,
       body: Form(
         key: _formKey,
-          child: Padding(
+          child: SingleChildScrollView(
+            child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 48),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -144,6 +145,7 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
+        )
       ),
     );
   }

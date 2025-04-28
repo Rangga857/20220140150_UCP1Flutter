@@ -28,7 +28,8 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 48),
         child: Form(
           key: _formKey,
-          child: Column(
+          child: SingleChildScrollView(
+            child: Column(
             children: [
               const SizedBox(height: 40),
               Image.asset('assets/images/logo.png', width: 100, height: 100),
@@ -180,7 +181,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomePage()),
+                          builder: (context) => HomePage(
+                             nama:emailController.text,
+                          )),
                       );
                     }
                   },
@@ -215,6 +218,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ],
           ),
+          )
         ),
       )
     );
