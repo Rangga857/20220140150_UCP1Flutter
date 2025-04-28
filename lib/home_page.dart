@@ -66,9 +66,28 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
+            )
+          ),
+        )
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  './assets/images/iklan.jpg',
+                  fit: BoxFit.cover,
+                  height: 150,
+                  width: double.infinity,
+                ),
               )
-            ),
-        )),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
