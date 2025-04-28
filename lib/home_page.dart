@@ -83,9 +83,44 @@ class _HomePageState extends State<HomePage> {
                   height: 150,
                   width: double.infinity,
                 ),
+              ),
+              SizedBox(height: 24),
+              Row(
+                children: [
+                ],
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+  Widget menuButton({
+      required IconData icon,
+      required String label,
+      required VoidCallback onTap,
+      bool isFullWidth = false,
+    }){
+      return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 255, 85, 0),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        width: isFullWidth ? double.infinity : null,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 40, color: Colors.white),
+            const SizedBox(height: 10),
+            Text(
+              label,
+              style: const TextStyle(color: Colors.white, fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );
