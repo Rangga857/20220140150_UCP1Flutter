@@ -55,6 +55,18 @@ class DetailPelangganPage extends StatelessWidget {
                 Expanded(child: formdetail('Kode Pos', kodePos)),
               ],
             ),
+            const SizedBox(height: 32),
+            ElevatedButton(
+              onPressed: () {
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                  },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 255, 85, 0),
+                minimumSize: const Size.fromHeight(50),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              ),
+              child: const Text('Selesai', style: TextStyle(fontSize: 17, color: Colors.white))
+            ),
           ],
         ),
       ),
