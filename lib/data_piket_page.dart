@@ -61,6 +61,40 @@ class _DataPiketPageState extends State<DataPiketPage> {
           },
         ),
       ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Nama Anggota', style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold
+              ),),
+              SizedBox(height: 8),
+              TextFormField(
+                controller: namaController,
+                readOnly: true,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide(color: Colors.grey.shade400),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text('Pilih Tanggal', style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),),
+              SizedBox(height: 8),
+            ],
+          )),
+      ),
     );
   }
 }
