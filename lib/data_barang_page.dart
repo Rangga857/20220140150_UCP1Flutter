@@ -46,6 +46,15 @@ class _BarangPageState extends State<BarangPage> {
         });
       }
     }
+
+    void calculateTotal(){
+      if (jumlahController.text.isNotEmpty && hargaSatuan != 0){
+        int jumlah = int.tryParse(jumlahController.text) ?? 0;
+        setState(() {
+          totalHarga = hargaSatuan * jumlah;
+        });
+      }
+    }
     return const Placeholder();
   }
 }
