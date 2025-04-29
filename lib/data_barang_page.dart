@@ -10,6 +10,11 @@ class BarangPage extends StatefulWidget {
 class _BarangPageState extends State<BarangPage> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController namaController = TextEditingController();
+    TextEditingController tugasController = TextEditingController();
+    DateTime? selectedDate;
+    String? dateError;
+    List<Map<String, String>> listtugas = [];
     return const Placeholder();
   }
 }
