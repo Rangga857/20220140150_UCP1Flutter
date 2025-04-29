@@ -172,6 +172,18 @@ class _DataPiketPageState extends State<DataPiketPage> {
                       ),
                     ),
                   ),
+                  const SizedBox(width: 8),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 255, 85, 0),
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    onPressed: tambahtugas,
+                    child: const Text('Tambah', style: TextStyle(color: Colors.white)),
+                  ),
                 ],
               ),
             ],
