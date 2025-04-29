@@ -95,13 +95,14 @@ class _LoginPageState extends State<LoginPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacement(
+                        Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
                             builder: (context) => HomePage(
                               nama:emailController.text,
                             ),
                           ),
+                          (Route<dynamic> route) => false,
                         );
                       }
                     },

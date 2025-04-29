@@ -178,12 +178,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         );
                         return;
                       }
-                      Navigator.pushReplacement(
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
                           builder: (context) => HomePage(
                              nama:namaController.text,
-                          )),
+                          )
+                          ),
+                          (Route<dynamic> route) => false,
                       );
                     }
                   },
