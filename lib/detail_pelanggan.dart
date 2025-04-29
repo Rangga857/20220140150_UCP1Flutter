@@ -31,6 +31,33 @@ class DetailPelangganPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
       ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('./assets/images/profile.png'), // Ganti dengan path gambar default kamu
+            ),
+            const SizedBox(height: 16),
+            Text(nama, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            Text(email, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 4),
+            Text(noHp, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 32),
+            formdetail('Alamat', alamat),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(child: formdetail('Provinsi', provinsi)),
+                const SizedBox(width: 16),
+                Expanded(child: formdetail('Kode Pos', kodePos)),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
   Widget formdetail(String label, String value) {
