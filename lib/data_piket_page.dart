@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ucp1/detail_piket_page.dart';
 
 class DataPiketPage extends StatefulWidget {
   final String nama;
@@ -195,8 +196,46 @@ class _DataPiketPageState extends State<DataPiketPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-              )
-            ],
+              ),
+              taskList.isNotEmpty
+              ? Column(
+                  children: taskList.map((task) { 
+                    return Card(
+                      margin: const EdgeInsets.only(bottom: 8),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      color: const Color.fromARGB(255, 255, 85, 0),
+                      child: ListTile(
+                        title: Text(task['task']!, style: const TextStyle(color: Colors.white)),
+                        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPiketPage(
+                                tugas: task['task']!,
+                                tanggal: task['date']!,
+                                nama: task['user']!,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  }).toList(),
+                )
+              : SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.4, // biar turun ke tengah
+                  child: const Center(
+                    child: Text(
+                      'Belum ada data',
+                      style: TextStyle(fontSize: 14
+                    ),
+                  ),
+                ),
+              ),
+            ]           
           )
         ),
       ),
