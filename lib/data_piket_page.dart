@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PiketPage extends StatefulWidget {
-  const PiketPage({super.key});
+class DataPiketPage extends StatefulWidget {
+  final String nama;
+
+  const DataPiketPage({super.key, required this.nama});
 
   @override
-  State<PiketPage> createState() => _PiketPageState();
+  State<DataPiketPage> createState() => _DataPiketPageState();
 }
 
-class _PiketPageState extends State<PiketPage> {
+class _DataPiketPageState extends State<DataPiketPage> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
