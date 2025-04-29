@@ -47,14 +47,33 @@ class _PelangganPageState extends State<PelangganPage> {
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [           
+            children: [
+              formTextField('Nama Cust', namaController),
+              SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(child: formTextField('Email', emailController)),
+                  SizedBox(width: 16),
+                  Expanded(child: formTextField('No Hp', nohpController)),
+                ],
+              ),
+              SizedBox(height: 16),
+              formTextField('Alamat', alamatController),
+              SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(child: formTextField('Provinsi', provinsiController)),
+                  SizedBox(width: 16),
+                  Expanded(child: formTextField('Kode Pos', kodeposController)),
+                ],
+              ),           
             ],
           ),
         ),
       ),
     );
   }
-  
+
   Widget formTextField (String label, TextEditingController controller) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
