@@ -61,8 +61,52 @@ class _BarangPageState extends State<BarangPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 255, 85, 0),
+        title: const Text('Pendataan Barang', 
+        style: TextStyle(
+          fontSize: 20, 
+          fontWeight: FontWeight.w400, 
+          color: Colors.white
+          )
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 6),
+                Text("Tanggal Transaksi",style: 
+                TextStyle(fontWeight: FontWeight.bold)
+                ),
+                SizedBox(height: 8),
+                TextFormField(
+                  controller: tanggalController,
+                  readOnly: true,
+                  decoration: InputDecoration(
+                    labelText: 'Tanggal Transaksi',
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                    suffixIcon: const Icon(Icons.calendar_today),
+                  ),
+                  onTap: () => _selectedDate(context),
+                  validator: (value) => value == null || value.isEmpty ? 'Tanggal transaksi wajib diisi' : null,
+                ),
+              ],
+            ),
+          ))
+        ),
     );
   }
 }
