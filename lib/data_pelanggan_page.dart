@@ -54,4 +54,32 @@ class _PelangganPageState extends State<PelangganPage> {
       ),
     );
   }
+  
+  Widget formTextField (String label, TextEditingController controller) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 8),
+        TextFormField(
+          controller: controller,
+          keyboardType: label == 'No Hp' || label == 'Kode Pos'
+              ? TextInputType.number
+              : TextInputType.text,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return '$label tidak boleh kosong';
+            }
+            return null;
+          },
+          decoration: InputDecoration(
+            hintText: label,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
