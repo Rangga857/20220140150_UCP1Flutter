@@ -33,4 +33,20 @@ class DetailPelangganPage extends StatelessWidget {
       ),
     );
   }
+  Widget formdetail(String label, String value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label),
+        const SizedBox(height: 8),
+        TextFormField(
+          initialValue: value,
+          readOnly: true,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+          ),
+        ),
+      ],
+    );
+  }
 }
