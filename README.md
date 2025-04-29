@@ -71,6 +71,9 @@ Selamat datang di **Mobile App Stored**, aplikasi Android yang dirancang untuk m
 ### 🔍 **Detail Barang**
 ![Detail Barang](https://github.com/user-attachments/assets/6fadfd50-2f6c-4d6d-b595-823a3ef88db4)
 
+## 📹 Video ScreenRecord Aplikasi
+![Lihat Video Demo Aplikasi](https://drive.google.com/file/d/1VItgP39GyP0Gxcg00d99Jh53x4Ljntde/view?usp=sharing)
+
 ---
 
 ## ✅ Fitur Utama
