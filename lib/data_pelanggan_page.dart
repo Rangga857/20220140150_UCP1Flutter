@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/detail_pelanggan.dart';
 
 class PelangganPage extends StatefulWidget {
   const PelangganPage({super.key});
@@ -66,7 +67,35 @@ class _PelangganPageState extends State<PelangganPage> {
                   SizedBox(width: 16),
                   Expanded(child: formTextField('Kode Pos', kodeposController)),
                 ],
-              ),           
+              ), 
+              SizedBox(height: 32),  
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50),
+                  backgroundColor: const Color.fromARGB(255, 255, 85, 0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPelangganPage(
+                          nama: namaController.text,
+                          email: emailController.text,
+                          noHp: nohpController.text,
+                          alamat: alamatController.text,
+                          provinsi: provinsiController.text,
+                          kodePos: kodeposController.text,
+                        ),
+                      ),
+                    );
+                  }
+                },
+                child: const Text('Simpan', style: TextStyle(fontSize: 17, color: Colors.white)),
+              ),        
             ],
           ),
         ),
