@@ -32,6 +32,65 @@ class DetailPiketPage extends StatelessWidget {
           },
         ),
       ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30), 
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
+                    tanggal,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 255, 85, 0),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 85, 0),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    nama,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24), 
+
+           Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 255, 85, 0),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Center(
+              child: Text(
+                tugas,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+                textAlign: TextAlign.start,
+              ),
+            ),
+          )
+          ],
+        ),
+      ),
     );
   }
 }
