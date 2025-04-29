@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
+class DetailBarangPage extends StatelessWidget {
   final String tanggal;
   final String jenisTransaksi;
   final String jenisBarang;
@@ -8,7 +8,14 @@ class MyWidget extends StatelessWidget {
   final int hargaSatuan;
   final int totalHarga;
 
-  const MyWidget({super.key});
+  const DetailBarangPage({
+    super.key,
+    required this.tanggal,
+    required this.jenisTransaksi,
+    required this.jenisBarang,
+    required this.jumlahBarang,
+    required this.hargaSatuan,
+    required this.totalHarga,});
 
   @override
   Widget build(BuildContext context) {
