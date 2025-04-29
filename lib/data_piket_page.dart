@@ -186,6 +186,16 @@ class _DataPiketPageState extends State<DataPiketPage> {
                   ),
                 ],
               ),
+              SizedBox(height: 24),
+              Center(   
+                  child: Text(
+                    'Daftar Tugas',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+              )
             ],
           )
         ),
