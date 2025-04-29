@@ -103,6 +103,47 @@ class _BarangPageState extends State<BarangPage> {
                   onTap: () => _selectedDate(context),
                   validator: (value) => value == null || value.isEmpty ? 'Tanggal transaksi wajib diisi' : null,
                 ),
+                DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                    labelText: 'Jenis Transaksi',
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  value: selectedTransaksi,
+                  items: jenisTransaksi.map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (newValue) {
+                    setState(() {
+                      selectedTransaksi = newValue;
+                    });
+                  },
+                  validator: (value) => value == null || value.isEmpty ? 'Jenis transaksi wajib dipilih' : null,
+                ),
+                const SizedBox(height: 24),
+                DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                    labelText: 'Jenis Barang',
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  value: selectedBarang,
+                  items: jenisBarang.keys.map((String key) {
+                    return DropdownMenuItem<String>(
+                      value: key,
+                      child: Text(key),
+                    );
+                  }).toList(),
+                  onChanged: (newValue) {
+                    setState(() {
+                      selectedBarang = newValue;
+                      hargaSatuan = jenisBarang[newValue!]!;
+                      calculateTotal();
+                    });
+                  },
+                  validator: (value) => value == null || value.isEmpty ? 'Jenis barang wajib dipilih' : null,
+                ),
               ],
             ),
           ))
