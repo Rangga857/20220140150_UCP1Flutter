@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -11,8 +9,6 @@ class BarangPage extends StatefulWidget {
 }
 
 class _BarangPageState extends State<BarangPage> {
-  @override
-  Widget build(BuildContext context) {
     TextEditingController jumlahController = TextEditingController();
     TextEditingController tanggalController = TextEditingController();
     DateTime? selectedDate;
@@ -31,7 +27,7 @@ class _BarangPageState extends State<BarangPage> {
     
     final _formKey = GlobalKey<FormState>();
 
-    Future<Void> _selectedDate(BuildContext context) async{
+    Future<void> _selectedDate(BuildContext context) async{
       final DateTime? picked = await showDatePicker(
         context: context, 
         initialDate: selectedDate ?? DateTime.now(),
@@ -55,6 +51,18 @@ class _BarangPageState extends State<BarangPage> {
         });
       }
     }
-    return const Placeholder();
+
+    @override
+    void dispose() {
+      jumlahController.dispose();
+      tanggalController.dispose();
+      super.dispose();
+    }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      
+    );
   }
 }
