@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ucp1/detail_barang_page.dart';
 
 class BarangPage extends StatefulWidget {
   const BarangPage({super.key});
@@ -103,6 +104,7 @@ class _BarangPageState extends State<BarangPage> {
                   onTap: () => _selectedDate(context),
                   validator: (value) => value == null || value.isEmpty ? 'Tanggal transaksi wajib diisi' : null,
                 ),
+                SizedBox(height: 24),
                 DropdownButtonFormField<String>(
                   decoration: InputDecoration(
                     labelText: 'Jenis Transaksi',
