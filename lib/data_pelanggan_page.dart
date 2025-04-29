@@ -16,6 +16,18 @@ class _PelangganPageState extends State<PelangganPage> {
     final TextEditingController alamatController = TextEditingController();
     final TextEditingController provinsiController = TextEditingController();
     final TextEditingController kodeposController = TextEditingController();
+
+    final _formKey = GlobalKey<FormState>();
+
+    void _resetForm() {
+      namaController.clear();
+      emailController.clear();
+      nohpController.clear();
+      alamatController.clear();
+      provinsiController.clear();
+      kodeposController.clear();
+    }
+    
     return const Placeholder();
   }
 }
