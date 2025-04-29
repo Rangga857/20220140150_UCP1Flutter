@@ -144,6 +144,79 @@ class _BarangPageState extends State<BarangPage> {
                   },
                   validator: (value) => value == null || value.isEmpty ? 'Jenis barang wajib dipilih' : null,
                 ),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      Text('Jumlah Barang', style: TextStyle(fontWeight: FontWeight.bold)),
+                      SizedBox(height: 8),
+                      TextFormField(
+                        controller: jumlahController,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        onChanged: (value) {
+                          calculateTotal();
+                        },
+                        validator: (value) => value == null || value.isEmpty ? 'Jumlah barang wajib diisi' : null,
+                      ),
+                      ] 
+                    ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Harga Satuan', style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 8),
+                        TextFormField(
+                          readOnly: true,
+                        decoration: InputDecoration(
+                          prefixText: 'Rp. ',
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        controller: TextEditingController(text: hargaSatuan.toString()),
+                      ),]
+                      ) 
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 255, 85, 0),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailBarangPage(
+                              tanggal: tanggalController.text,
+                              jenisTransaksi: selectedTransaksi ?? '',
+                              jenisBarang: selectedBarang ?? '',
+                              jumlahBarang: int.tryParse(jumlahController.text) ?? 0,
+                              hargaSatuan: hargaSatuan,
+                              totalHarga: totalHarga,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                    child: const Text('Submit', style: TextStyle(fontSize: 17, color: Colors.white)),
+                  ),
+                ),
               ],
             ),
           ))
