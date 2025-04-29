@@ -145,9 +145,38 @@ class _DataPiketPageState extends State<DataPiketPage> {
                       ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 24),
+              Text('Tugas Piket',
+              style: TextStyle(
+                fontSize: 16, 
+                fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      controller: tugasController,
+                      validator: (value) => value == null || value.isEmpty ? 'Tugas harus diisi' : null,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'Tugas',
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(color: Colors.grey.shade400),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
-          )),
+          )
+        ),
       ),
     );
   }
